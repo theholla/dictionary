@@ -1,4 +1,4 @@
-# Dictioary
+# Dictionary
 
 ##### This app will let a user input and sort through words in a dictionary, August 21, 2015.
 
