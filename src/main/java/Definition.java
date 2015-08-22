@@ -5,7 +5,7 @@ public class Definition {
     mDefinition = definition;
   }
 
-  public String getDefinition() {
+  public String getDescription() {
     return mDefinition;
   }
 
