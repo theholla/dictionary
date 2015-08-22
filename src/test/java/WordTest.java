@@ -9,4 +9,10 @@ public class WordTest {
     assertEquals(true, myWord instanceof Word);
   }
 
+  @Test
+  public void word_instantiatesWithName_true() {
+    Word myWord = new Word("stampede");
+    assertEquals("stampede", myWord.getName());
+  }
+
 }
