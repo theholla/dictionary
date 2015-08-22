@@ -1,0 +1,19 @@
+<h3>Dictionary!</h3>
+<ul>
+  #foreach ($word in $dictionary)
+   <li>$word.getWord()</li>
+   #end
+</ul>
+<hr/>
+<p>Add a new Word:</p>
+
+<form action="/dictionary" method="post">
+  <label for="name">Word</label>
+  <input id="name", name="name" type="test">
+
+  <!--<label for="description">Definition</label>
+  <input id="description", name="description" type="test">
+-->
+
+  <button type="submit" class="btn btn-success">Add me to the dictionary!</button>
+</form>

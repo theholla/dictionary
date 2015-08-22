@@ -22,7 +22,24 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("");
+    assertThat(pageSource()).contains("Dictionary!");
+  }
+
+  @Test
+  public void wordIsCreatedTest() {
+    goTo("http://localhost:4567");
+    fill("#name").with("bubble");
+    submit(".btn");
+    assertThat(pageSource().contains("Your word has been added"));
+  }
+
+  @Test
+  public void wordIsDisplayedTest() {
+    goTo("http://localhost:4567");
+    fill("#name").with("bubble");
+    submit(".btn");
+    click("a", withText("Go back"));
+    assertThat(pageSource()).contains("bubble");
   }
 
 }

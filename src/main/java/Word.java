@@ -1,13 +1,13 @@
 public class Word {
   //declare the member variable outside of the method
-  String mWord;
+  private String mName;
 
-  public Word(String word) {
-    //inside of the constructor, we call mWord
-    mWord = word;
+  public Word(String name) {
+    //inside of the constructor, we call mName
+    mName = name;
   }
 
   public String getWord() {
-    return mWord;
+    return mName;
   }
 }
