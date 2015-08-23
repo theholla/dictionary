@@ -1,4 +1,10 @@
-<h3>Your entry has been updated!</h3>
+<h3>Success!</h3>
+
+#if ($definition)
+  Your definition has been saved.
+#elseif ($word)
+  Your word has been added to the dictionary.
+#end
 
 <a href="words/new">Add a new word!</a>
 <hr/>

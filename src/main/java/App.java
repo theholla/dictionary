@@ -35,7 +35,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String description = request.queryParams("description");
       Definition newDefinition = new Definition(description);
-      model.put("definitions", Definition.all());
+      model.put("definition", newDefinition);
       model.put("template", "templates/definitions.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -65,6 +65,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       Word newWord = new Word(name);
+      model.put("word", newWord);
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
