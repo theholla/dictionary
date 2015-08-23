@@ -1,16 +1,17 @@
 public class Word {
   private String mName;
+  private Definition mDefinition;
 
   public Word(String name) {
     mName = name;
   }
 
-  public String addDefinition() {
-    something
+  public void addDefinition(Definition definition) {
+    mDefinition = definition;
   }
 
-  public String getDefinition() {
-    something
+  public Definition getDefinition() {
+    return mDefinition;
   }
 
   public String getName() {

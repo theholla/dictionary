@@ -2,7 +2,7 @@
 <ul>
   <!--description comes from Definition.java, definitions is from defs.vtl-->
 #foreach ($description in $definitions)
-  <!--dynamically creating a link to each individual definition. First is word/1, 23rd is word/23-->
+  <!--dynamically creating a link to each individual definition. First is def/1, 23rd is def/23-->
   <a href="/definitions/$description.getId()">$description.getDescription()</a>
 #end
 </ul>

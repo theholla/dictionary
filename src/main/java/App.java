@@ -9,15 +9,17 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
+    //makes the home page from a template
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    // uses the new method Definition.all() to put the instances of arraylist in to the model
     get("/definitions", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("definition", Definition.all()); // PROBLEM IS HERE
+      model.put("definitions", Definition.all());
       model.put("template", "templates/definitions.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -33,14 +35,14 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String description = request.queryParams("description");
       Definition newDefinition = new Definition(description);
-      model.put("template", "templates/success.vtl");
+      model.put("template", "templates/definitions.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     get("/definitions/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Definition myDef = Definition.find(Integer.parseInt(request.params(":id")));
-      model.put("description", myDef); // description???
+      model.put("description", myDef); // am I sure I want description here??
       model.put("template", "templates/definition.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

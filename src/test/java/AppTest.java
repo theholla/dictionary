@@ -26,7 +26,7 @@ public class AppTest extends FluentTest {
   @Test
   public void definitionIsCreatedTest() {
     goTo("http://localhost:4567");
-    click("a", withText("Add a new definition"));
+    click("a", withText("a new ")); //PROBLEM IS HERE
     fill("#description").with("an air-filled sphere");
     submit(".btn");
     assertThat(pageSource().contains("Your definition has been added"));
@@ -37,7 +37,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/definitions/new");
     fill("#description").with("an air-filled sphere");
     submit(".btn");
-    click("a", withText("View all definitions"));
+    click("a", withText("View all definitions"));  //PROBLEM IS HERE
     assertThat(pageSource()).contains("an air-filled sphere");
   }
 
@@ -49,7 +49,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/definitions/new");
     fill("#description").with("a sudden panicked rush");
     submit(".btn");
-    click("a", withText("View all definitions"));
+    click("a", withText("View all definitions"));  //PROBLEM IS HERE
     assertThat(pageSource()).contains("an air-filled sphere");
     assertThat(pageSource()).contains("a sudden panicked rush");
   }
@@ -59,7 +59,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/definitions/new");
     fill("#description").with("an air-filled sphere");
     submit(".btn");
-    click("a", withText("View all definitions"));
+    click("a", withText("View all definitions"));  //PROBLEM IS HERE
     click("a", withText("an air-filled sphere"));
     assertThat(pageSource()).contains("an air-filled sphere");
   }
