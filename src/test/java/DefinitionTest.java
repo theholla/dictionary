@@ -17,4 +17,18 @@ public class DefinitionTest {
     Definition myDefinition = new Definition("A sudden panicked rush of animals.");
     assertEquals("A sudden panicked rush of animals.", myDefinition.getDescription());
   }
+
+  @Test
+  public void clear_removesAllInstancesFromMemory() {
+    Definition myDefinition = new Definition("A long tail.");
+    Definition.clear();
+    assertEquals(Definition.all().size(), 0);
+  }
+
+  @Test
+  public void find_returnsDefinitionWithSameId() {
+    Definition myDefinition = new Definition("A long tail.");
+    assertEquals(Definition.find(myDefinition.getId()), myDefinition);
+  }
+
 }
