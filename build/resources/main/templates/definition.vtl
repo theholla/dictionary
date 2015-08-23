@@ -1,0 +1,12 @@
+<h1>All about your word</h1>
+<p></p>
+
+#if ($description)
+  <h2>$description.getDescription()</h2>
+#else
+  <h2>Definition not found</h2>
+#end
+
+<a href="/definitions/new">Add a new definition!</a>
+<hr/>
+<a href="/definitions">View all definitions.</a>

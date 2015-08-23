@@ -1,0 +1,11 @@
+<h2>All words</h2>
+<ul>
+#foreach ($word in $words)
+  <!--dynamically creating a link to each individual definition. First is def/1, 23rd is def/23-->
+  <a href="/words/$word.getId()">$word.getName()</a>
+#end
+</ul>
+<hr/>
+<a href="words/new">Add a new word!</a>
+<hr/>
+<a href="/words">View all words.</a>

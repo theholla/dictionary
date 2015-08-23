@@ -24,48 +24,21 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void definitionIsCreatedTest() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#description").with("an air-filled sphere");
+  public void wordIsCreatedTest() {
+    goTo("http://localhost:4567");
+    click("a", withText("Add a new word!"));
+    fill("#name").with("peach");
     submit(".btn");
-    assertThat(pageSource().contains("definition has been added"));
+    assertThat(pageSource()).contains("Your entry has been updated");
   }
 
   @Test
-  public void definitionIsDisplayedTest() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#description").with("an air-filled sphere");
+  public void wordIsDisplayedTest() {
+    goTo("http://localhost:4567/words/new");
+    fill("#name").with("peach");
     submit(".btn");
-    goTo("http://localhost:4567/definitions");
-    assertThat(pageSource()).contains("an air-filled sphere");
-  }
-
-  @Test
-  public void multipleDefinitionsAreDisplayedTest() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#description").with("an air-filled sphere");
-    submit(".btn");
-    goTo("http://localhost:4567/definitions/new");
-    fill("#description").with("a sudden panicked rush");
-    submit(".btn");
-    goTo("http://localhost:4567/definitions");
-    assertThat(pageSource()).contains("an air-filled sphere");
-    assertThat(pageSource()).contains("a sudden panicked rush");
-  }
-
-  @Test
-  public void definitionShowPageDisplaysDescription() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#description").with("an air-filled sphere");
-    submit(".btn");
-    goTo("http://localhost:4567/definitions");
-    assertThat(pageSource()).contains("an air-filled sphere");
-  }
-
-  @Test
-  public void definitionNotFoundMessageShown() {
-    goTo("http://localhost:4567/definitions/999");
-    assertThat(pageSource()).contains("Definition not found");
+    click("a", withText("View all words."));
+    assertThat(pageSource()).contains("peach");
   }
 
 }
