@@ -17,8 +17,7 @@ public class App {
 
     get("/definitions", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      //puts the instances ArrayList of all definitions into the model
-      model.put("definitions", Definition.all());
+      model.put("definition", Definition.all()); // PROBLEM IS HERE
       model.put("template", "templates/definitions.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -35,6 +34,14 @@ public class App {
       String description = request.queryParams("description");
       Definition newDefinition = new Definition(description);
       model.put("template", "templates/success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/definitions/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Definition myDef = Definition.find(Integer.parseInt(request.params(":id")));
+      model.put("description", myDef); // description???
+      model.put("template", "templates/definition.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

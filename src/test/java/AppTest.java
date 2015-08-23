@@ -64,4 +64,10 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("an air-filled sphere");
   }
 
+  @Test
+  public void definitionNotFoundMessageShown() {
+    goTo("http://localhost:4567/definitions/999");
+    assertThat(pageSource()).contains("Definition not found");
+  }
+
 }
