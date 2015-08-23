@@ -1,4 +1,4 @@
-import org.junit.*;
+/*import org.junit.*;
 import static org.junit.Assert.*;
 
 public class WordTest {
@@ -15,4 +15,7 @@ public class WordTest {
     assertEquals("stampede", myWord.getWord());
   }
 
+
+
 }
+*/

@@ -1,4 +1,9 @@
-<h3>Dictionary!</h3>
+#if ($description)
+  <h1>$description.getDescription()</h1>
+#else
+  <h1>Definition not found</h1>
+#end
+
 <a href="/definitions/new">Add a new definition!</a>
 <hr/>
 <a href="/definitions">View all definitions.</a>

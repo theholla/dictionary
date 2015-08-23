@@ -1,0 +1,10 @@
+<h3>All definitions</h3>
+<ul>
+  <!--description comes from Definition.java, definitions is from defs.vtl-->
+#foreach ($description in $definitions)
+  <!--dynamically creating a link to each individual definition. First is word/1, 23rd is word/23-->
+  <a href="/definitions/$description.getId()">$description.getDescription()</a>
+#end
+</ul>
+<hr/>
+<a href="definitions/new">Add a new definition!</a>

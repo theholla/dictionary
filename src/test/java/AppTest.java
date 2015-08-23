@@ -24,33 +24,44 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void wordIsCreatedTest() {
+  public void definitionIsCreatedTest() {
     goTo("http://localhost:4567");
-    fill("#name").with("bubble");
+    click("a", withText("Add a new definition"));
+    fill("#description").with("an air-filled sphere");
     submit(".btn");
-    assertThat(pageSource().contains("Your word has been added"));
+    assertThat(pageSource().contains("Your definition has been added"));
   }
 
   @Test
-  public void wordIsDisplayedTest() {
-    goTo("http://localhost:4567");
-    fill("#name").with("bubble");
+  public void definitionIsDisplayedTest() {
+    goTo("http://localhost:4567/definitions/new");
+    fill("#description").with("an air-filled sphere");
     submit(".btn");
-    click("a", withText("Go back"));
-    assertThat(pageSource()).contains("bubble");
+    click("a", withText("View all definitions"));
+    assertThat(pageSource()).contains("an air-filled sphere");
   }
 
   @Test
-  public void multipleWordsAreDisplayedTest() {
-    goTo("http://localhost:4567");
-    fill("#name").with("bubble");
+  public void multipleDefinitionsAreDisplayedTest() {
+    goTo("http://localhost:4567/definitions/new");
+    fill("#description").with("an air-filled sphere");
     submit(".btn");
-    click("a", withText("Go back"));
-    fill("#name").with("stampede");
+    goTo("http://localhost:4567/definitions/new");
+    fill("#description").with("a sudden panicked rush");
     submit(".btn");
-    click("a", withText("Go back"));
-    assertThat(pageSource()).contains("bubble");
-    assertThat(pageSource()).contains("stampede");
+    click("a", withText("View all definitions"));
+    assertThat(pageSource()).contains("an air-filled sphere");
+    assertThat(pageSource()).contains("a sudden panicked rush");
+  }
+
+  @Test
+  public void definitionShowPageDisplaysDescription() {
+    goTo("http://localhost:4567/definitions/new");
+    fill("#description").with("an air-filled sphere");
+    submit(".btn");
+    click("a", withText("View all definitions"));
+    click("a", withText("an air-filled sphere"));
+    assertThat(pageSource()).contains("an air-filled sphere");
   }
 
 }
