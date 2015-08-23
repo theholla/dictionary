@@ -35,6 +35,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String description = request.queryParams("description");
       Definition newDefinition = new Definition(description);
+      model.put("definitions", Definition.all());
       model.put("template", "templates/definitions.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
