@@ -1,9 +1,9 @@
 <h2>Here is Your Comprehensive Dictionary</h2>
 <ul>
-#foreach ($word in $words)
-  <!--dynamically creating a link to each individual definition. First is def/1, 23rd is def/23-->
-  <a href="/words/$word.getId()">$word.getName()</a>
-#end
+    #foreach ($word in $words)
+      <!--dynamically creating a link to each individual definition. First is def/1, 23rd is def/23-->
+      <li><a href="/words/$word.getId()"><h3>$word.getName()</h3></a></li>
+    #end
 </ul>
 <hr/>
 <a href="words/new">Add a new word!</a>

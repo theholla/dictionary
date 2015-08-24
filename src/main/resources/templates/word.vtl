@@ -1,11 +1,13 @@
 <h1>$word.getName():</h1>
 <p></p>
-    <!-- from: $task in $word.getTasks() -->
-#foreach ($definition in $word.getDefinitions())
-    <!-- from: $task.getDescription() -->
-  <h3> $definition.getDescription()</h3>
-#end
 
+<ol>
+    #foreach ($definition in $word.getDefinitions())
+      <li><h3> $definition.getDescription()</h3></li>
+    #end
+</ol>
+
+<hr/>
 <a href="/words/$word.getId()/definitions/new">Add a new definition!</a>
 <hr/>
 <a href="/">Return to main page.</a>
