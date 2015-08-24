@@ -1,17 +1,17 @@
 # Dictionary
 
-##### This app will let a user input and sort through words in a dictionary, August 21, 2015.
+##### This app will let a user input words and definitions in a dictionary, August 21, 2015.
 
 #### By **Diana Holland**
 
 ## Description
 
-You may enter words into this dictionary, and sort through the words to find their definition and part of speech.
+You may enter words into this dictionary, and look at individual words to read their definitions. You may also add multiple definitions for one word.
 
 ## Setup
 
 * You'll need the JDK
-* And Gradle or some other way to run and compile
+* You'll need Gradle or some other way to run and compile Java
 * You'll also need Spark and Velocity
 * Get the files and have fun!
 
