@@ -1,8 +1,10 @@
 <p><h1>Add a new word to your dictionary:</h1></p>
 
 <form action="/words" method="post">
-  <label for="name">Word</label>
-  <input id="name", name="name" type="test">
+  <div class="form-group">
+    <label for="name"></label>
+    <input id="name" name="name" type="text" class="form-control">
+  </div>
 
   <button type="submit" class="btn btn-success">Add me to the dictionary!</button>
 </form>
