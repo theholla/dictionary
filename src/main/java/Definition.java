@@ -7,8 +7,8 @@ public class Definition {
 
   public Definition(String description) {
     mDefinition = description;
-    instances.add(this); //inside of an object, we can reference that object with [this]
-    mId = instances.size(); //makes each object have a unique id
+    instances.add(this); // inside of an object, we can reference that object with [this]
+    mId = instances.size(); // makes each object have a unique id
   }
 
   public String getDescription() {

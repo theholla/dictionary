@@ -1,8 +1,12 @@
-<p><h1>Add a new definition for this word:</h1></p>
+<p><h1>Add a definition to $word.getName():</h1></p>
 
 <form action="/definitions" method="post">
-  <label for="description">Definition</label>
-  <input id="description", description="description" type="test">
+  <input id="wordId" name="wordId" type="hidden" value="$word.getId()">
+
+  <div class="form-group">
+    <label for="description">Definition</label>
+    <input id="description" name="description" tpe="text" class="form-control">
+  </div>
 
   <button type="submit" class="btn btn-success">Add me to the dictionary!</button>
 </form>

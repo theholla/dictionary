@@ -2,16 +2,15 @@ import java.util.ArrayList;
 
 public class Word {
   private static ArrayList<Word> instances = new ArrayList<Word>();
-
   private String mName;
   private int mId;
-  private ArrayList<Definition> mDefinitionList;
+  private ArrayList<Definition> mDefinitions;
 
   public Word(String name) {
     mName = name;
     instances.add(this); //inside of an object, we can reference that object with [this]
     mId = instances.size(); //makes each object have a unique id
-    mDefinitionList = new ArrayList<Definition>();
+    mDefinitions = new ArrayList<Definition>();
     //initializes as a new empty array list whenever we have a new word
   }
 
@@ -23,12 +22,12 @@ public class Word {
     return mId;
   }
 
-  public ArrayList<Definition> getDefinitionList() {
-    return mDefinitionList;
+  public ArrayList<Definition> getDefinitions() {
+    return mDefinitions;
   }
 
   public void addDefinition(Definition description) {
-    mDefinitionList.add(description);
+    mDefinitions.add(description);
   }
 
   public static ArrayList<Word> all() {

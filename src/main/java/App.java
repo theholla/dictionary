@@ -33,10 +33,12 @@ public class App {
 
     post("/definitions", (request,response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      Word thisWord = Word.find(Integer.parseInt(request.queryParams("wordId")));
       String description = request.queryParams("description");
       Definition newDefinition = new Definition(description);
-      model.put("definition", newDefinition);
-      model.put("template", "templates/definitions.vtl");
+      thisWord.addDefinition(newDefinition);
+      model.put("word", thisWord);
+      model.put("template", "templates/word.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -70,5 +72,29 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/words/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("word", Word.find(Integer.parseInt(request.params(":id"))));
+      model.put("template", "templates/word.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("words/:id/definitions/new", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word thisWord = Word.find(Integer.parseInt(request.params(":id")));
+      ArrayList<Definition> theseDefinitions = thisWord.getDefinitions();
+      model.put("word", thisWord);
+      model.put("definitions", theseDefinitions);
+      model.put("template", "templates/def-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    /*get("/words/:id/definitions/new", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("word", Word.find(Integer.parseInt(request.params(":id"))));
+      model.put("template", "templates/def-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+    */
   }
 }
